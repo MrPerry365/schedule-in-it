@@ -11,13 +11,13 @@ $("#currentDay").text(moment().format('MMMM Do YYYY, h:mm:ss a'));
 // THEN the text for that event is saved in local storage //
 // - add function to listen to button and save event to local storage //
 
-$(".saveBtn").on("click", function () {
-    var text = $(this).siblings(".description").val();
-console.log(text);
-    var time = $(this).parent().attr("id");
-console.log(time);
-    localStorage.setItem(text, time);  
-})
+    $(".saveBtn").on("click", function () {
+        var text = $(this).siblings(".description").val();
+    console.log(text);
+        var time = $(this).parent().attr("id");
+    console.log(time);
+        localStorage.setItem(text, time);  
+    })
 
 // WHEN I view the time blocks for that day //
 // THEN each time block is color-coded to indicate whether it is in the past, present, or future //
@@ -34,31 +34,31 @@ $("#hour15.description").val(localStorage.getItem('hour15'));
 $("#hour16.description").val(localStorage.getItem('hour16'));
 $("#hour17.description").val(localStorage.getItem('hour17'));
 
-function hourTracker() {
-    var currentHour = moment().hour();
+    function hourTracker() {
+        var currentHour = moment().hour();
 
-    $('.time-block').each(function() {
-        var blockHour = parseInt($(this).attr('id').split("hour")[1]);
+        $('.time-block').each(function() {
+            var blockHour = parseInt($(this).attr('id').split("hour")[1]);
 
-        if (blockHour < currentHour){
-            $(this).addClass('past');
-            $(this).removeClass('present');
-            $(this).removeClass('future');
-        }
+            if (blockHour < currentHour){
+                $(this).addClass('past');
+                $(this).removeClass('present');
+                $(this).removeClass('future');
+            }
 
-        else if (blockHour > currentHour) {
-            $(this).addClass('future');
-            $(this).removeClass('present');
-            $(this).removeClass('past');
-        }
+            else if (blockHour > currentHour) {
+                $(this).addClass('future');
+                $(this).removeClass('present');
+                $(this).removeClass('past');
+            }
 
-        else if (currentHour === blockHour) {
-            $(this).addClass('present');
-            $(this).removeClass('future');
-            $(this).removeClass('past');
-        }
-    })
-}
+            else if (currentHour === blockHour) {
+                $(this).addClass('present');
+                $(this).removeClass('future');
+                $(this).removeClass('past');
+            }
+        })
+    }
     hourTracker();
 
 
