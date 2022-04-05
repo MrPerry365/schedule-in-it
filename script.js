@@ -10,11 +10,12 @@ $("#currentDay").text(moment().format('MMMM Do YYYY, h:mm:ss a'));
 // WHEN I click the save button for that time block //
 // THEN the text for that event is saved in local storage //
 // - add function to listen to button and save event to local storage //
+
 $(".saveBtn").on("click", function () {
     var text = $(this).siblings(".description").val();
-//console.log(text);
+console.log(text);
     var time = $(this).parent().attr("id");
-//console.log(time);
+console.log(time);
     localStorage.setItem(text, time);  
 })
 
