@@ -23,22 +23,21 @@ $(".saveBtn").on("click", function () {
 // add box shadow and color to listed items when targeted //
 // - add function to track each hour //
 // - add loop to check if hour is past, present, or future //
-$("#9 . description").val(localStorage.getItem('9'));
-$("#10 . description").val(localStorage.getItem('10'));
-$("#11 . description").val(localStorage.getItem('11'));
-$("#12 . description").val(localStorage.getItem('12'));
-$("#1 . description").val(localStorage.getItem('1'));
-$("#2 . description").val(localStorage.getItem('2'));
-$("#3 . description").val(localStorage.getItem('3'));
-$("#4 . description").val(localStorage.getItem('4'));
-$("#5 . description").val(localStorage.getItem('5'));
+$("#hour9.description").val(localStorage.getItem('hour9'));
+$("#hour10.description").val(localStorage.getItem('hour10'));
+$("#hour11.description").val(localStorage.getItem('hour11'));
+$("#hour12.description").val(localStorage.getItem('hour12'));
+$("#hour13.description").val(localStorage.getItem('hour13'));
+$("#hour14.description").val(localStorage.getItem('hour14'));
+$("#hour15.description").val(localStorage.getItem('hour15'));
+$("#hour16.description").val(localStorage.getItem('hour16'));
+$("#hour17.description").val(localStorage.getItem('hour17'));
 
-function eachHour() {
+function hourTracker() {
     var currentHour = moment().hour();
 
-    $('.time-block').each(function () {
-        var blockHour = parseInt($(this).attr('id')[0]);
-        console.log(blockHour, currentHour);
+    $('.time-block').each(function() {
+        var blockHour = parseInt($(this).attr('id').split("hour")[1]);
 
         if (blockHour < currentHour){
             $(this).addClass('past');
@@ -59,7 +58,7 @@ function eachHour() {
         }
     })
 }
-    eachHour();
+    hourTracker();
 
 
 
